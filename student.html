@@ -1,0 +1,78 @@
+import java.io.l*;
+import java.util.*;
+import javax.servlet.*;
+import javax.servlet.http.*;
+public class MyServlet extends HttpServlet(
+public void doGet(HttpServletRequest req,HttpServletResponse res)
+throws ServeletException,IOException(
+PrintWriter out=res.getWriter();
+Enumeration en=req.getParameterNames();
+while(en.hasMoreElements()){
+String name_received=(String)en.nextElement();
+out.print(name_receivead+"=");
+String value_received=req.getParameter(name_receaived);
+out.println(value_received);
+out.println("");}
+out.close();}}
+// index.html
+<html>
+<head>
+<title>Student Information Form</title>
+</head>
+<body>
+<form name="form1"
+action="http://localhost:30695/First/hello" method=get>
+<h1>STUDENT INFORMATION FORM</H1>
+<h3>Enter student information in following fields-</h3>
+<table>
+<tr>
+<td><input type="text" name="Roll Number" size="25" value=" "></td>
+</tr>
+<tr>
+<td>Student Name</td>
+<td><input type="text" name="Student Name" size="25" value=" "></td>
+</tr>
+<tr>
+<td>Student Adress</td>
+<td><input type="text" name="Student Name" size="50" value=" "></td>
+</tr>
+<tr>
+<td>phone</td>
+<td><input type="text" name="phone" size="10" value=" "></td>
+</tr>
+<tr>
+<td>Total Marks</td>
+<td><input type="text" name="Total Marks" sixe="25" value=" "><\td>
+</tr>
+</table>
+<input tylpe="submit" value="submit">
+</form>
+</center>
+</body>
+</html>
+//web.xml
+//web.xml
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" 
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+   xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee 
+   http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+    <servlet>
+        <servlet-name>hello</servlet-name>
+        <servlet-class>MyServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>hello</servlet-name>
+        <url-pattern>/hello</url-pattern>
+    </servlet-mapping>
+    <welcome-file-list>
+        <welcome-file>index.html</welcome-file>
+    </welcome-file-list>
+    <session-config>
+        <session-timeout>
+            30
+        </session-timeout>
+    </session-config>
+</web-app>
+
+
